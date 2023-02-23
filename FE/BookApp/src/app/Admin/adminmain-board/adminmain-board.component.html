@@ -1,0 +1,88 @@
+<h4>Admin Main Board</h4>
+<div class="container-fluid py-4" style="margin-left: 100px;">
+    <div class="row">
+      <div class="col col-md-4">
+        <div class="card shadow-0 border">
+          <div class="card-body">
+            <div class="page-title">
+            <h4>Add Book</h4> 
+            <form [formGroup]="bookForm">
+                <div class="form-group">
+                  <label>
+                    BookId <span class="text-danger">*</span>
+                  </label>
+                  <input appTitleCase type="text"  class="form-control " name="BookId" formControlName="bookId">
+                         
+           </div>
+
+
+           <div class="form-group">
+            <label> Book Title <span class="text-danger">*</span> </label>
+            <input appTitleCase type="text"  class="form-control " name="BookTitle" formControlName="bookTitle">      
+           </div>
+
+           <div class="form-group">
+            <label> Book Author <span class="text-danger">*</span> </label>
+            <input appTitleCase type="text"  class="form-control " name="BookAuthor" formControlName="bookAuthor">      
+           </div>
+
+
+           <div class="form-group">
+            <label> Book Description <span class="text-danger">*</span> </label>
+            <input appTitleCase type="text"  class="form-control " name="bookDescription" formControlName="bookDescription">      
+           </div>
+
+           <div class="form-group">
+            <label> Stock <span class="text-danger">*</span> </label>
+            <input appTitleCase type="text"  class="form-control " name="stock" formControlName="stock">      
+           </div>
+           <br>
+           <button mat-raised-button type="submit" *ngIf="!book_update" (click)="save()">Save</button>
+           <button mat-raised-button type="submit" *ngIf="book_update" (click)="updateBook()">Update</button>
+            </form>
+          </div>
+        </div>
+    </div> 
+      </div>
+  
+
+<div class="col col-md-8">
+    <div class="card shadow-0 border">
+      <div class="card-body">
+        <div class="page-title">
+          <h5>List Of Book</h5>
+          <table class="global_table assigngroup_table table-bordered">
+            <thead>
+              <tr>
+                <th  >S. No</th>
+                <th >Book Title</th>
+                <th >Book Author</th>
+                <th >Book Description</th>
+                <th >Stock</th>
+              
+                <th >update</th>
+                <th>delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of allBook; let i = index">
+                
+                <td class="col_table">{{i+1}}</td>
+                <td class="col_table">{{item.bookTitle}}</td>
+                <td class="col_table">{{item.bookAuthor}}</td>
+                <td class="col_table">{{item.bookDescription}}</td>
+                <td class="col_table">{{item.stock}}</td>
+                <td class="col_table"><i class="fa-solid fa-pen-fancy" matTooltip="Edit" (click)="update(item)"></i></td>
+                <td class="col_table"><i class="fa-solid fa-trash-can" matTooltip="delete" (click)="bookDelete(item.bookId)"></i></td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+

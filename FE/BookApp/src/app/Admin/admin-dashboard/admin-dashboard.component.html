@@ -1,0 +1,58 @@
+
+
+<mat-toolbar  color="primary">
+    <mat-toolbar-row>
+      <div fxShow="true" fxHide.gt-sm="true">
+        <button mat-icon-button>
+          <mat-icon (click)="sidenav.toggle();">menu</mat-icon>
+      </button>
+      </div>
+      <span style="font-size: larger;">Book App</span>
+      
+      <div fxShow="true" fxHide.lt-md="true" style="margin-left: 800px;display: inline-flex;">
+        <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+       
+
+        
+        <a  class="nav-link" mat-button style="font-size:medium;" routerLink="/dashboard" matTooltip="Log Out" >log Out</a>
+        <img src="assets\pngtree-business-people-avatar-icon-user-profile-free-vector-png-image_4815126.jpg" alt="" class="rounded-circle" style="width: 10%;margin-left: 400px;">
+        
+      </div>
+    
+    </mat-toolbar-row>
+    
+    
+    </mat-toolbar>
+    
+    <mat-sidenav-container fxFlexFill class="example-container">
+      <mat-sidenav #sidenav fxLayout="column" class="home">
+        <div fxLayout="column">
+          <a (click)="sidenav.toggle()"  mat-button></a>
+          
+          <mat-nav-list >
+           
+           
+           
+
+            <div style="display: inline-flex;">
+              
+                <a mat-list-item  routerLink="/dashboard/home" >  <i class="fa-solid fa-arrow-right-to-bracket icon"></i>Log Out</a>
+            </div>
+          
+          
+            
+           
+            
+         </mat-nav-list>
+        </div>
+      </mat-sidenav>
+    
+        <mat-sidenav-content style="height:88vh" >
+         
+    <app-adminmain-board></app-adminmain-board>
+        </mat-sidenav-content>
+    
+    </mat-sidenav-container>
+    
+  
+    
